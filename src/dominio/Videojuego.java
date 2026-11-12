@@ -1,12 +1,12 @@
 package dominio;
 
 public class Videojuego {
+    public final String codigo;
     private String titulo;
     private String plataforma;
     private int puntuacion;
     private int horasJugadas;
-
-    public Videojuego(String titulo_,  String plataforma_ , int puntuacion_ , int horasJugadas_ ){
+    public Videojuego(String titulo_, String plataforma_ , int puntuacion_ , int horasJugadas_, String cod_){
         titulo = titulo_ ;
         if(titulo_.isEmpty()){
            System.out.println("Error título invalido");
@@ -20,6 +20,7 @@ public class Videojuego {
         if(horasJugadas_<= 0){
            System.out.println("Error horas jugadas invalidas");
          }
+         codigo = cod_;
     }
     public String getTitulo(){
         return titulo;
@@ -55,13 +56,13 @@ public class Videojuego {
     public String toString(){
         return "-------------\n" + "Título: " + titulo + "\n Plataforma: " + plataforma + "\n Puntuación: " + puntuacion + "\n Horas Jugadas: " + horasJugadas + "\n -------------\n";
     }
-    public boolean equals(Object obj){
-        if (this == obj) return true;
-        if (!(obj instanceof Videojuego)) return false;
-        Videojuego otro = (Videojuego) obj;
-        return puntuacion == otro.puntuacion
-                && horasJugadas == otro.horasJugadas
-                && java.util.Objects.equals(titulo, otro.titulo)
-                && java.util.Objects.equals(plataforma, otro.plataforma);
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if(o instanceof Videojuego){
+           Videojuego a =(Videojuego)o; return a.codigo == this.codigo;
+        }else return false;
+    } 
+    public int hashCode(){
+      return codigo.hashCode();
     }
-}
+}   

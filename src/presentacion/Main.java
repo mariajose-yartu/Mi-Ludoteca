@@ -1,17 +1,25 @@
 package presentacion;
 
-import java.util.ArrayList;
-
+import dominio.Ludoteca;
 import dominio.Videojuego;
 
 public class Main {
     public static void main(String[] args) {
-       ArrayList <Videojuego> lista = new ArrayList<>();
-    lista.add(new Videojuego("Minecraft" ,"PC" ,100 , 30));
-    lista.add(new Videojuego("Silksong", "Steam", 98 , 45));
-    lista.add(new Videojuego("DressMaker", "Steam" , 97 , 20));
-    lista.add(new Videojuego("Kirby" , "Nintendo Switch" , 100 , 20 ));
-    lista.add(new Videojuego("Slime Rancher", "Playstation", 96 , 30));
-    
+     Ludoteca miLudoteca = new Ludoteca();
+     Videojuego juego1 = new Videojuego("Slime Rancher", "PC", 100, 85, "55");
+     Videojuego juego2 = new Videojuego("Animal Crossing","Nintendo Switch", 98 , 120, "100");
+     Videojuego juego3 = new Videojuego("Ghost of Yotei", "PlayStation", 99 , 40, "101");
+     miLudoteca.agregar(juego1);
+     miLudoteca.agregar(juego2);
+     miLudoteca.agregar(juego3);
+     String tituloBuscado = "Slime Rancher";
+     String resultadoBusqueda = miLudoteca.buscarPorTitulo(tituloBuscado);
+     if(resultadoBusqueda != null){
+        System.out.println("videojuego encontrado: " + resultadoBusqueda);
+     }else{
+        System.out.println("Videojuego no encontrado.");
+     }
+     System.out.println("Ludoteca:");
+     System.out.println(miLudoteca.toString());
     }
 }
