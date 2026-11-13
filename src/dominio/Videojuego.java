@@ -1,27 +1,31 @@
 package dominio;
 
 public class Videojuego {
-    public final String codigo;
-    private String titulo;
-    private String plataforma;
-    private int puntuacion;
-    private int horasJugadas;
-    public Videojuego(String titulo_, String plataforma_ , int puntuacion_ , int horasJugadas_, String cod_){
-        titulo = titulo_ ;
+    protected final String codigo;
+    protected  String titulo;
+    protected String plataforma;
+    protected int puntuacion;
+    protected int horasJugadas;
+    public Videojuego(String titulo_, String plata_, int punt_, int horasJ, String codigo_){
+        titulo = titulo_;
         if(titulo_.isEmpty()){
-           System.out.println("Error título invalido");
+           System.out.println("Error título invalido.");
         }
-        plataforma = plataforma_;
-        puntuacion = puntuacion_;
-        if(puntuacion_ < 0 || puntuacion_ > 100 ){
-            System.out.println("Error puntuación invalida");
+        plataforma = plata_;
+        if(plata_.isEmpty()){
+          System.out.println("Error plataforma invalida.");
         }
-        horasJugadas = horasJugadas_;
-        if(horasJugadas_<= 0){
-           System.out.println("Error horas jugadas invalidas");
-         }
-         codigo = cod_;
+        puntuacion = punt_;
+        if(punt_ < 0 || punt_ > 100 ){
+       System.out.println("Error puntuación invalida");
+        }
+       horasJugadas = horasJ;
+       if(horasJ<= 0){
+        System.out.println("Error horas jugadas invalidas");
+       }
+       codigo = codigo_ ;
     }
+    public Videojuego(){}
     public String getTitulo(){
         return titulo;
     }
