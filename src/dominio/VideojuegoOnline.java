@@ -3,27 +3,11 @@ package dominio;
 public class VideojuegoOnline extends Videojuego {
     int nJOnline;
     public VideojuegoOnline(String titu, String plat, int puntu, int horaJ, int nJO, String codi ){
-    titulo = titu;
-   if(titu.isEmpty()){
-    System.out.println("Error título invalido.");
-    }
-   plataforma = plat;
-   if(plat.isEmpty()){
-      System.out.println("Error plataforma invalida.");
-    }
-   puntuacion = puntu;
-   if(puntu < 0 || puntu > 100 ){
-       System.out.println("Error puntuación invalida");
-    }
-   horasJugadas = horaJ;
-    if(horaJ<= 0){
-      System.out.println("Error horas jugadas invalidas");
-     }
+    super(titu, plat, puntu, horaJ, codi);
    nJOnline = nJO;
    if(nJO <= 0){
      System.out.println("Error numeros Facciones invalida.");
    }
-    codigo = codi ;
  }
   public int getnJO(){
     return nJOnline;

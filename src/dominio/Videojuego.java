@@ -25,7 +25,6 @@ public class Videojuego {
        }
        codigo = codigo_ ;
     }
-    public Videojuego(){}
     public String getTitulo(){
         return titulo;
     }
