@@ -29,7 +29,7 @@ public class Main {
             }
             opcion = sc.nextInt();
             sc.nextLine();
-
+            
             switch (opcion) {
                 case 1:
                     System.out.print("Título: ");
