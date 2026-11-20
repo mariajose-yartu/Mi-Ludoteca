@@ -12,12 +12,10 @@ public class Ludoteca {
         ludoteca1.add(videojuego);
         return this;
     }
-    public String toString(){
-     String resultado = "";
-     for (Videojuego videojuego : ludoteca1){
-        resultado += videojuego + "\n";
+    public void listar(){
+     for (Videojuego v : ludoteca1){
+       System.out.println(v.toString());
      }
-     return resultado;
     }
     public String buscarPorTitulo(String titulo){
      for(Videojuego videojuego : ludoteca1){
@@ -27,5 +25,38 @@ public class Ludoteca {
      }
      return null;
     }
+    
+   public double calcularPuntuacionMedia(){
+      if(ludoteca1.isEmpty()){
+        return 0.0;
+      }
+      double total = 0.0;
+      for(Videojuego videojuego: ludoteca1){
+        total += videojuego.getPuntuacion();
+      }
+      return total/ludoteca1.size();
     }
-
+    public Videojuego mejorValorado(){
+     if(ludoteca1.isEmpty()){
+        return null;
+     }
+      Videojuego mejor = ludoteca1.get(0);
+      for(Videojuego videojuego : ludoteca1){
+        if(videojuego.getPuntuacion() > mejor.getPuntuacion()){
+          mejor = videojuego;
+        }
+      }
+      return mejor;
+    }
+    public void borrar(String titulo){
+        ludoteca1.remove(new Videojuego(titulo));
+    }
+    public String filtarporPlataforma(String plataforma){
+     for(Videojuego videojuego: ludoteca1){
+       if(videojuego.getPlataforma().equals(plataforma)){
+        return videojuego + "\n";
+       }
+     }
+     return null;
+    }
+}

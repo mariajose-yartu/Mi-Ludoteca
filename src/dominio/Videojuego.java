@@ -1,7 +1,7 @@
 package dominio;
 
 public class Videojuego {
-    protected final String codigo;
+    protected  String codigo;
     protected  String titulo;
     protected String plataforma;
     protected int puntuacion;
@@ -25,6 +25,13 @@ public class Videojuego {
        }
        codigo = codigo_ ;
     }
+    public Videojuego(String tit){
+        titulo = tit;
+        if(tit.isEmpty()){
+           System.out.println("Error título invalido.");
+        }
+        }
+    
     public String getTitulo(){
         return titulo;
     }
@@ -59,10 +66,14 @@ public class Videojuego {
     public String toString(){
         return "-------------\n" + "Título: " + titulo + "\n Plataforma: " + plataforma + "\n Puntuación: " + puntuacion + "\n Horas Jugadas: " + horasJugadas + "\n -------------\n";
     }
-    public boolean equals(Object o){
+    public void mostrarFicha(){
+     System.out.println(this);
+    }    
+   public boolean equals(Object o){
         if (this == o) return true;
         if(o instanceof Videojuego){
-           Videojuego a =(Videojuego)o; return a.codigo == this.codigo;
+           Videojuego a =(Videojuego)o; return a.titulo == this.titulo; 
+           
         }else return false;
     } 
     public int hashCode(){
