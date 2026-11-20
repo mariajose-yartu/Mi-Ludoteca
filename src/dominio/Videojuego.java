@@ -72,7 +72,7 @@ public class Videojuego {
    public boolean equals(Object o){
         if (this == o) return true;
         if(o instanceof Videojuego){
-           Videojuego a =(Videojuego)o; return a.titulo == this.titulo; 
+           Videojuego a =(Videojuego)o; return a.titulo.equals(this.titulo);
            
         }else return false;
     } 
