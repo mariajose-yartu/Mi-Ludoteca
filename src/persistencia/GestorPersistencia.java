@@ -3,7 +3,7 @@ import dominio.Ludoteca;
 import java.io.*;
 public class GestorPersistencia {
  public void guardar(Ludoteca ludoteca, String ruta){
-    try(ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(ruta ))){
+    try(ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(ruta))){
        os.writeObject(ludoteca);
     }
     catch(IOException e){

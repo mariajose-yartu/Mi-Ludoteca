@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         GestorPersistencia gp = new GestorPersistencia();
-         Ludoteca miLudoteca = gp.cargar("./ludoteca/ludoteca.dat");
+        Ludoteca miLudoteca = gp.cargar("./ludoteca/ludoteca.dat");
         int opcion;
         System.out.println("Bienvenido usuari@");
         do {
