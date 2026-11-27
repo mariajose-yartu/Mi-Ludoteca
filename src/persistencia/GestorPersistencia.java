@@ -1,18 +1,17 @@
 package persistencia;
 import dominio.Ludoteca;
-import java.nio.file.Path;
 import java.io.*;
 public class GestorPersistencia {
- public void guardar(Ludoteca ludoteca, Path ruta) throws IOException{
-    try(ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("./ludoteca/ludoteca.dat"))){
+ public void guardar(Ludoteca ludoteca, String ruta){
+    try(ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(ruta ))){
        os.writeObject(ludoteca);
     }
     catch(IOException e){
-        System.out.println("No se ha podido guardar la agenda");
+        System.out.println("No se ha podido guardar la ludoteca");
     }
  }
- public Ludoteca cargar(Path ruta) throws IOException {
-    try( ObjectInputStream os = new ObjectInputStream(new FileInputStream("./ludoteca/ludoteca.dat"))) {
+ public Ludoteca cargar(String ruta){
+    try( ObjectInputStream os = new ObjectInputStream(new FileInputStream(ruta))) {
         Ludoteca nueva =(Ludoteca) os.readObject();
         return nueva;
     }

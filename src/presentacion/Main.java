@@ -4,10 +4,12 @@ import dominio.*;
 
 import java.util.Scanner;
 
+import persistencia.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Ludoteca miLudoteca = new Ludoteca();
+        GestorPersistencia gp = new GestorPersistencia();
+         Ludoteca miLudoteca = gp.cargar("./ludoteca/ludoteca.dat");
         int opcion;
         System.out.println("Bienvenido usuari@");
         do {
@@ -47,10 +49,14 @@ public class Main {
 
                     miLudoteca.agregar(new Videojuego(titulo, plataforma, puntuacion, horas, codigo));
                     System.out.println("Videojuego añadido.");
+                    System.out.println("Pulse de nuevo para ver las opcciones");
+                    sc.nextLine();
                     break;
 
                 case 2:
                     miLudoteca.listar();
+                    System.out.println("Pulse de nuevo para ver las opcciones");
+                    sc.nextLine();
                     break;
 
                 case 3:
@@ -58,15 +64,21 @@ public class Main {
                     titulo = sc.nextLine();
                     String encontrado = miLudoteca.buscarPorTitulo(titulo);
                     System.out.println(encontrado != null ? encontrado : "No se encontró el videojuego.");
+                    System.out.println("Pulse de nuevo para ver las opcciones");
+                    sc.nextLine();
                     break;
 
                 case 4:
                     System.out.println("Puntuación media: " + miLudoteca.calcularPuntuacionMedia());
+                    System.out.println("Pulse de nuevo para ver las opcciones");
+                    sc.nextLine();
                     break;
 
                 case 5:
                     Videojuego mejor = miLudoteca.mejorValorado();
                     System.out.println(mejor != null ? mejor : "No hay videojuegos.");
+                    System.out.println("Pulse de nuevo para ver las opcciones");
+                    sc.nextLine();
                     break;
 
                 case 6:
@@ -74,6 +86,8 @@ public class Main {
                     titulo = sc.nextLine();
                     miLudoteca.borrar(titulo);
                     System.out.println("Operación completada.");
+                    System.out.println("Pulse de nuevo para ver las opcciones");
+                    sc.nextLine();
                     break;
 
                 case 7:
@@ -81,10 +95,13 @@ public class Main {
                     plataforma = sc.nextLine();
                     String filtrados = miLudoteca.filtarporPlataforma(plataforma);
                     System.out.println(filtrados != null ? filtrados : "No hay videojuegos para esa plataforma.");
+                    System.out.println("Pulse de nuevo para ver las opcciones");
+                    sc.nextLine();
                     break;
 
                 case 8:
                     System.out.println("¡Hasta pronto!");
+                     gp.guardar( miLudoteca, "./ludoteca/ludoteca.dat");
                     break;
 
                 default:
