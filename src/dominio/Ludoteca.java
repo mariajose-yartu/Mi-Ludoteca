@@ -1,9 +1,10 @@
 package dominio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Ludoteca {
-    private ArrayList<Videojuego> ludoteca1 = new ArrayList<>();
+public class Ludoteca implements Serializable {
+    private  ArrayList<Videojuego> ludoteca1 = new ArrayList<>();
     public Ludoteca(ArrayList<Videojuego> ludoteca_) {
         ludoteca1 = ludoteca_;
     }
@@ -25,7 +26,6 @@ public class Ludoteca {
      }
      return null;
     }
-    
    public double calcularPuntuacionMedia(){
       if(ludoteca1.isEmpty()){
         return 0.0;

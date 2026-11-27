@@ -1,6 +1,8 @@
 package dominio;
 
-public class Videojuego {
+import java.io.Serializable;
+
+public class Videojuego implements Serializable{
     protected  String codigo;
     protected  String titulo;
     protected String plataforma;
